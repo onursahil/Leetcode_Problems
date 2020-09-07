@@ -27,17 +27,11 @@ Constraints:
 from functools import reduce
 
 def xorOperation(n, start):
-    if n < 1 or n > 1000 or start < 1 or start > 1000:
-        return False
-    else:
-        nums = []
-        for i in range(n):
-            nums.append(start + (2 * i))
-        
-        if n != len(nums):
-            return False
-            
-        answer = reduce(lambda i, j: int(i) ^ int(j), nums)
+    nums = []
+    for i in range(n):
+        nums.append(start + (2 * i))
+
+    answer = reduce(lambda i, j: int(i) ^ int(j), nums)
     
     return answer
 
