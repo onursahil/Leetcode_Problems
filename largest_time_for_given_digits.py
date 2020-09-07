@@ -32,6 +32,7 @@ def largestTimeFromDigits(A):
         return ""
     for t in first_p[::-1]:
         f_cl = int(str(t[0]) + str(t[1]))
+        print(f_cl)
         if f_cl > 23:
             continue
         elif str(f_cl) == '00' or str(f_cl) == '0':
@@ -39,11 +40,23 @@ def largestTimeFromDigits(A):
             break
         else:
             first_clock = str(f_cl)
-            a = t[0]
-            b = t[1]
-            break
+            if int(first_clock) < 24:
+                a = t[0]
+                print(a)
+                b = t[1]
+                break
+            return ""
 
-    second_p = [element for element in list(permutations(A, 2)) if element[0] < 6 and element[0] != a and element[0] != b and element[1] != a and element[1]!= b]
+    A.remove(a)
+    A.remove(b)
+
+    print(first_clock)
+
+    # second_p = [element for element in list(permutations(A, 2)) if element[0] < 6 and element[0] != a and element[0] != b and element[1] != a and element[1]!= b]
+    second_p = [element for element in list(permutations(A, 2)) if element[0] < 6]
+    if len(second_p) == 0:
+        return ""
+
     second_clock = str(second_p[len(second_p) - 1][0]) + str(second_p[len(second_p) - 1][1])
 
     if len(first_clock) == 1:
@@ -53,6 +66,6 @@ def largestTimeFromDigits(A):
     return answer
 
 
-A = [0, 0, 0, 0]
+A = [4, 2, 4, 4]
 result = largestTimeFromDigits(A)
 print(result)
