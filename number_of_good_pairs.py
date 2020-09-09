@@ -1,4 +1,6 @@
 """
+Number of Good Pairs
+
 
 Given an array of integers nums.
 
