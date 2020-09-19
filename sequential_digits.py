@@ -17,23 +17,35 @@ Input: low = 1000, high = 13000
 Output: [1234,2345,3456,4567,5678,6789,12345]
 """
 
+from collections import deque
+
 def sequentialDigits(low, high):
+
+    # Solution with collections.dequeue
     answer = []
-    for i in range(low, high + 1):
-        num_list = list(str(i))
-        for j in range(len(num_list) - 1):
-            flag = True
-            if int(num_list[j]) == int(num_list[j + 1]) + 1:
-                continue
-            else:
-                flag = False
-        if flag == True:
-            answer.append(i)
-    
+    queue = deque(range(1,10))
+    while queue:
+        q_element = queue.popleft()
+        if low <= q_element <= high:
+            answer.append(q_element)
+        remaining = q_element % 10
+        if remaining < 9: 
+            queue.append(q_element*10 + remaining + 1)
+
+    # Solution with lists
+    answer = []
+    queue = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    while queue:
+        q_element = queue.pop(0)
+        if low <= q_element <= high:
+            answer.append(q_element)
+        remaining = q_element % 10
+        if remaining < 9:
+            queue.append(q_element * 10 + remaining + 1)
+
     return answer
 
-
-low = 100
-high = 300
+low = 10
+high = 1000000000
 result = sequentialDigits(low, high)
 print(result)
