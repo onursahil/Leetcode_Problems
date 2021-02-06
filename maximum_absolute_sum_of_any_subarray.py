@@ -51,7 +51,7 @@ def maxAbsoluteSum(nums):
     return maximum
 
 
-nums = [2,-5,1,-4,3,-2]
+nums = [1,-3,2,3,-4]
 result = maxAbsoluteSum(nums)
 result_optimized = maxAbsoluteSum_optimized(nums)
-print(result, result_optimized)
+print(result_optimized, result_optimized)
