@@ -12,7 +12,7 @@ def longestNiceSubstring(s):
     
     for start in range(N):
         for end in range(start, N + 1):
-            if good(start, end) and end - start + 1 > len(best):
+            if good(start, end) and end - start > len(best):
                 best = s[start:end]
 
     return best
