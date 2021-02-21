@@ -37,33 +37,14 @@ m == multipliers.length
 m <= n <= 105
 -1000 <= nums[i], multipliers[i] <= 1000
 """
-
 def maximumScore(nums, multipliers):
-    # score = 0
-    # for i in range(len(multipliers)):
-    #     m = multipliers[i]
-    #     start, end = nums[0], nums[-1]
-    #     if m < 0:
-    #         proper_value = min(start, end)
-    #     else:
-    #         proper_value = max(start, end)
-        
-    #     print(m, proper_value)
-    #     score += (m * proper_value)
-    #     nums.remove(proper_value)
-
-    def find_combinations(nums_pair, multiplier):
-
-    possibilities = []
-    for i in range(len(multipliers)):
-        start = 0
-        end = -1
-        possible_combinations = []
-        possible_combinations.append(nums, nums[end])
-
-        find_combinations()
-
-    return True
+    def dfs(i, j, k):
+        if k == len(multipliers): 
+            return 0
+        l = nums[i] * multipliers[k] + dfs(i+1, j, k+1)
+        r = nums[j] * multipliers[k] + dfs(i, j-1, k+1)
+        return max(l, r)
+    return dfs(0, len(nums)-1, 0)
 
 
 nums = [-5,-3,-3,-2,7,1]
