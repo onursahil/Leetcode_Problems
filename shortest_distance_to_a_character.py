@@ -35,10 +35,6 @@ def shortestToChar(s, c):
     
     for i in range(len(s)):
         distances.append(min([abs(c_indices[j] - i) for j in range(len(c_indices))]))
-        # if s[i] == c:
-        #     distances.append(0)
-        # else:
-        #     distances.append(min([abs(c_indices[j] - i) for j in range(len(c_indices))]))
 
     return distances
 
