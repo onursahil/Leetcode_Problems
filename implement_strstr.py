@@ -26,13 +26,7 @@ Output: 0
 """
 
 def strStr(haystack, needle):
-    # return haystack.find(needle)
-    for i in range(len(haystack) - len(needle)):
-        if needle in haystack[i:i+len(needle)]:
-            return i
-    return -1
-    
-    # return True
+    return haystack.find(needle)
 
 haystack, needle = "hello", "ll"
 result = strStr(haystack, needle)
