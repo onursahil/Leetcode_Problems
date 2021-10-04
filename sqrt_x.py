@@ -32,6 +32,9 @@ EXPLANATION
 """
 
 def mySqrt(x):
+    """
+    This solution has time limit error
+
     r = x
     precision = 10 ** (-10)
     print(precision)
@@ -40,6 +43,20 @@ def mySqrt(x):
         r = (r + x / r) / 2
 
     return int(r)
+    """
+
+    start = 0
+    end = x // 2
+    while start <= end:
+        mid = start + ((end - start) // 2)
+        if mid * mid <= x and (mid+1) * (mid+1) > x:
+            return mid
+        elif mid * mid < x:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return start
+    
 
 x = 44
 result = mySqrt(x)
