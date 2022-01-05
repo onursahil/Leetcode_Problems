@@ -46,23 +46,37 @@ firstWord, secondWord, and targetWord consist of lowercase English letters from 
 import string
 
 def isSumEqual(firstWord, secondWord, targetWord):
-    alphabet = string.ascii_lowercase
+    # alphabet = string.ascii_lowercase
 
-    firstStr, secondStr, targetStr = "", "", ""
+    # firstStr, secondStr, targetStr = "", "", ""
     
-    for i in range(len(firstWord)):
-        firstStr += str(alphabet.index(firstWord[i]))
-    firstInt = int(firstStr)
+    # for i in range(len(firstWord)):
+    #     firstStr += str(alphabet.index(firstWord[i]))
+    # firstInt = int(firstStr)
 
-    for i in range(len(secondWord)):
-        secondStr += str(alphabet.index(secondWord[i]))
-    secondInt = int(secondStr)
+    # for i in range(len(secondWord)):
+    #     secondStr += str(alphabet.index(secondWord[i]))
+    # secondInt = int(secondStr)
 
-    for i in range(len(targetWord)):
-        targetStr += str(alphabet.index(targetWord[i]))
-    targettInt = int(targetStr)
+    # for i in range(len(targetWord)):
+    #     targetStr += str(alphabet.index(targetWord[i]))
+    # targettInt = int(targetStr)
 
-    if (firstInt + secondInt) == targettInt:
+    # if (firstInt + secondInt) == targettInt:
+    #     return True
+    # else:
+    #     return False
+
+    dic = {'a':'0','b':'1','c':'2','d':'3','e':'4','f':'5','g':'6','h':'7','i':'8','j':'9'}
+    w1,w2,wt = '','',''
+    for item in firstWord:
+        w1 += dic[item]
+    for item in secondWord:
+        w2 += dic[item]
+    for item in targetWord:
+        wt += dic[item]
+
+    if int(w1) + int(w2) == int(wt):
         return True
     else:
         return False
