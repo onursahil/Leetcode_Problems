@@ -31,9 +31,6 @@ def uniqueOccurrences(arr):
     arr_count = dict(Counter(arr))
     values = sorted(list(arr_count.values()))
     set_values = sorted(list(set(values)))
-
-    print(values)
-    print(set_values)
     
     if set_values == values:
         return True
