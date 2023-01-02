@@ -34,6 +34,7 @@ message consists of lowercase English letters and ' '.
 import string
 from collections import OrderedDict
 def decodeMessage(key: str, message: str) -> str:
+    """Decode The Message"""
     key = list(''.join(OrderedDict.fromkeys(key.replace(" ", "")).keys()))
     key_dict = dict(zip(key, string.ascii_lowercase))
     result = ""
