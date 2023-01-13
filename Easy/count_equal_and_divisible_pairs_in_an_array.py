@@ -33,7 +33,6 @@ def countPairs(nums: List[int], k: int) -> int:
         for j in range(i + 1, len(nums)):
             if nums[i] == nums[j] and (i * j) % k == 0:
                 count += 1
-
     return count
 
 nums, k = [1,2,3,4], 1
